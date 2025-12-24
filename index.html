@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi persona especial 🎄</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        body { 
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            color: white; 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-romance { font-family: 'Dancing Script', cursive; }
+
+        .gift-card { 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .gift-card:hover { 
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Estilo para la nieve */
+        .snowflake {
+            position: fixed; top: -10px; z-index: 9999;
+            user-select: none; pointer-events: none;
+            color: white; font-size: 1em;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(105vh); }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-5 flex flex-col items-center">
+
+    <header class="text-center my-12 animate__animated animate__fadeInDown">
+        <h1 class="text-5xl md:text-6xl font-romance text-red-500 mb-4 drop-shadow-lg">¡Feliz Navidad, Mi Liss Hermosa! ❤️</h1>
+        <p class="text-lg text-blue-300 font-light tracking-widest uppercase">Un regalo desde mi corazón hasta tu corazón</p>
+    </header>
+
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full px-4">
+        
+        <div onclick="openGift('Nuestra Historia', `
+            <img src='./497567363_2772136296317874_5687130912681716493_n.jpg' class='w-full h-48 object-cover rounded-lg mb-4 shadow-lg'>
+            <p class='text-left leading-relaxed'>Desde aquellos días de colegio, siendo apenas unos niños descubriendo el amor, hemos recorrido un camino increíble. Guardo con cariño cada caminata hacia la parada, los nervios del primer día que aún siento a veces, y todos esos pequeños detalles que nos han formado. Eres mi pasado favorito y el futuro que quiero seguir construyendo.</p>
+        `)" class="gift-card bg-red-900/30 p-8 rounded-3xl border border-red-500/50 flex flex-col items-center text-center">
+            <span class="text-5xl mb-4">🎁</span>
+            <h2 class="text-2xl font-bold text-red-400">Un recuerdo especial</h2>
+        </div>
+
+        <div onclick="openGift('Ticket de Amor', `
+            <div class='bg-yellow-500 text-black p-6 rounded-lg border-4 border-dashed border-yellow-700 font-bold'>
+                <p class='text-sm uppercase tracking-widest'>Vale Regalo No. 001</p>
+                <h3 class='text-3xl my-2'>CENA ROMÁNTICA</h3>
+                <p class='text-sm italic'>Válido para: En cuanto nuestros ojos se vuelvan a encontrar</p>
+                <hr class='my-3 border-yellow-800'>
+                <p class='text-xs text-right italic'>Incluye abrazos infinitos y toda mi atención.</p>
+            </div>
+        `)" class="gift-card bg-green-900/30 p-8 rounded-3xl border border-green-500/50 flex flex-col items-center text-center">
+            <span class="text-5xl mb-4">🎟️</span>
+            <h2 class="text-2xl font-bold text-green-400">Cupón Mágico</h2>
+        </div>
+
+        <div onclick="openGift('Por qué te admiro', `
+            <div class='text-left space-y-4'>
+                <p>🌟 <b>A la Licenciada más increíble:</b> Tu título es la prueba de tu esfuerzo, pero tu maestría para enfrentar la vida es lo que realmente me asombra.</p>
+                <p>🧠 <b>Tu inteligencia:</b> Admiro cómo analizas el mundo y cómo te levantas con más fuerza ante cada reto.</p>
+                <p>💻 <b>Persistencia pura:</b> Si tu vida fuera código, tu algoritmo de resiliencia sería el más eficiente que existe; siempre retornas hacia el éxito.</p>
+                <p>✨ <b>Tu luz:</b> Eres maravillosa no solo por lo que logras, sino por quién eres mientras lo haces.</p>
+            </div>
+        `)" class="gift-card bg-blue-900/30 p-8 rounded-3xl border border-blue-500/50 flex flex-col items-center text-center">
+            <span class="text-5xl mb-4">✨</span>
+            <h2 class="text-2xl font-bold text-blue-400">Razones para amarte</h2>
+        </div>
+
+        <div onclick="openGift('Nuestra Melodía', `
+            <p class='mb-6'>He elegido esta canción porque cada nota me recuerda a ti y a lo que somos.</p>
+            <a href='https://youtu.be/AW94sXKJZ2Y' target='_blank' class='inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition-colors'>
+                ▶️ Escuchar Canción
+            </a>
+            <p class='mt-4 text-xs text-gray-400'>(Se abrirá en una nueva pestaña)</p>
+        `)" class="gift-card bg-yellow-900/30 p-8 rounded-3xl border border-yellow-500/50 flex flex-col items-center text-center">
+            <span class="text-5xl mb-4">🎶</span>
+            <h2 class="text-2xl font-bold text-yellow-400">Nuestra música</h2>
+        </div>
+    </main>
+
+    <div id="modal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-slate-800 p-8 rounded-3xl max-w-lg w-full border border-gray-600 shadow-2xl animate__animated animate__zoomIn">
+            <h2 id="modal-title" class="text-3xl font-romance text-red-400 mb-6 border-b border-gray-700 pb-2 text-center"></h2>
+            <div id="modal-content" class="text-gray-200 mb-8 overflow-y-auto max-h-[60vh]"></div>
+            <div class="text-center">
+                <button onclick="closeModal()" class="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 px-10 py-3 rounded-full font-bold shadow-lg transition-all">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openGift(title, content) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-content').innerHTML = content; // Cambiado a innerHTML
+            document.getElementById('modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Sistema de nieve simple
+        function createSnowflake() {
+            const snow = document.createElement('div');
+            snow.classList.add('snowflake');
+            snow.innerHTML = '❄';
+            snow.style.left = Math.random() * 100 + 'vw';
+            snow.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snow.style.opacity = Math.random();
+            document.body.appendChild(snow);
+            setTimeout(() => { snow.remove(); }, 5000);
+        }
+        setInterval(createSnowflake, 150);
+    </script>
+</body>
+</html>
